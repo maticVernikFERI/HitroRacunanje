@@ -16,10 +16,12 @@ form {
     background: var(--secondary-bg);
     line-height: 1.15;
     font-size: 1rem;
+    margin: 1rem 0;
+    transition: all 0.3s ease;
 }
 
 #submitButton:hover {
-    transition: all .1s ease;
+    transition: all 0.2s ease-in-out;
     box-shadow: 0 0 0 0 #fff, 0 0 0 0.2rem var(--secondary-bg);
 }
 
@@ -32,55 +34,70 @@ form {
         background-color: var(--secondary-bg);
         border-radius: 1rem;
     }
-    
+
     input[type='range']::-webkit-slider-runnable-track {
         height: 1rem;
         -webkit-appearance: none;
         color: var(--primary-color);
         border-radius: 1rem;
     }
-    
+
     input[type='range']::-webkit-slider-thumb {
         width: 1rem;
         -webkit-appearance: none;
         height: 1rem;
-        cursor: -webkit-grab; cursor: grab;
+        cursor: -webkit-grab;
+        cursor: grab;
         background: var(--primary-color);
         box-shadow: -11vw 0 0 10.5vw var(--secondary-color);
         border-radius: 50%;
     }
 }
+
 /** FF*/
 input[type="range"]::-moz-range-progress {
-  background-color: var(--primary-color); 
-}
-input[type="range"]::-moz-range-track {  
-  background-color: var(--secondary-bg);
-}
-/* IE*/
-input[type="range"]::-ms-fill-lower {
-  background-color: var(--primary-color); 
-}
-input[type="range"]::-ms-fill-upper {  
-  background-color: var(--secondary-bg);
+    background-color: var(--primary-color);
 }
 
-.checkboxContainer{
+input[type="range"]::-moz-range-track {
+    background-color: var(--secondary-bg);
+}
+
+/* IE*/
+input[type="range"]::-ms-fill-lower {
+    background-color: var(--primary-color);
+}
+
+input[type="range"]::-ms-fill-upper {
+    background-color: var(--secondary-bg);
+}
+
+.checkboxContainer,
+.radioContainer {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin: 1rem 0;
-
+    margin: 0.3rem 0;
+    gap: 0.5em;
 }
 
-.form-control, .radio-form-control {
-    font-size: 1rem;
+.formElementContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0.3rem 0;
+    gap: 0.5em;
+}
+
+.form-control,
+.radio-form-control {
     line-height: 1.1;
     display: grid;
     grid-template-columns: 1em auto;
     gap: 0.5em;
-  }
+}
 
 input[type="checkbox"] {
     -webkit-appearance: none;
@@ -96,9 +113,9 @@ input[type="checkbox"] {
     transform: translateY(-0.075em);
     display: grid;
     place-content: center;
-  }
-  
-  input[type="checkbox"]::before {
+}
+
+input[type="checkbox"]::before {
     content: "";
     width: 0.65em;
     height: 0.65em;
@@ -108,15 +125,20 @@ input[type="checkbox"] {
     background-color: CanvasText;
     transform-origin: bottom left;
     clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
-  }
-  
-  input[type="checkbox"]:checked::before, input[type="radio"]:checked::before {
+}
+
+input[type="checkbox"]:hover {
+    box-shadow: 0 0 0 0.05rem var(--primary-color);
+}
+
+input[type="checkbox"]:checked::before,
+input[type="radio"]:checked::before {
     transform: scale(1);
-  }
-  
-  input[type="radio"] {
+}
+
+input[type="radio"] {
     appearance: none;
-    background-color: #fff;
+    background-color: var(--primary-bg);
     margin: 0;
     font: inherit;
     color: currentColor;
@@ -127,15 +149,37 @@ input[type="checkbox"] {
     transform: translateY(-0.075em);
     display: grid;
     place-content: center;
-  }
-  
-  input[type="radio"]::before {
+}
+
+input[type="radio"]::before {
     content: "";
     width: 0.65em;
     height: 0.65em;
     border-radius: 50%;
     transform: scale(0);
     transition: 120ms transform ease-in-out;
-    box-shadow: inset 1em 1em #00a8a8;
+    box-shadow: inset 1em 1em var(--primary-color);
     background-color: CanvasText;
-  }
+}
+
+input[type="radio"]:hover {
+    box-shadow: 0 0 0 0.05rem var(--primary-color);
+}
+
+select {
+    background-color: var(--secondary-bg);
+    border: 0.13rem solid var(--primary-color);
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.2rem;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+    margin: 0.3rem 0;
+}
+
+select:hover {
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 0 0 0.05rem var(--primary-color);
+}

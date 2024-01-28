@@ -13,16 +13,20 @@
 <body>
     <h1>Hitro računanje</h1>
     <form action="racunanje.html" onsubmit="return validateForm()" method="get">
-        <div>
+        <div class="radioContainer">
             <span>Računanje do:</span>
+            <label for="10" class="radio-form-control">
             <input type="radio" id="10" name="racunanjeDo" value="10">
-            <label for="10">10</label>
+            10</label>
+            <label for="20" class="radio-form-control">
             <input type="radio" id="20" name="racunanjeDo" value="20">
-            <label for="20">20</label>
+            20</label>
+            <label for="50" class="radio-form-control">
             <input type="radio" id="50" name="racunanjeDo" value="50">
-            <label for="50">50</label>
+            50</label>
+            <label for="100" class="radio-form-control">
             <input type="radio" id="100" name="racunanjeDo" value="100">
-            <label for="100">100</label>
+            100</label>
         </div>
         <div class="checkboxContainer">
             <span>Operacije:</span>
@@ -39,14 +43,14 @@
             <input type="checkbox" id="deljenje" name="operacije" value="/">
             Deljenje</label>
         </div>
-        <div>
+        <div class="formElementContainer">
             <label for="tipIgre">Tip igre:</label>
             <select name="tipIgre" id="tipIgre" onchange="changeTime()">
                 <option value="casovna">10 računov za vsakega x sekund</option>
                 <option value="stevilcna">Koliko računov v x sekundah</option>
             </select>
         </div>
-        <div class="slidecontainer">
+        <div class="slidecontainer formElementContainer">
             <label for="cas">Čas:</label>
             <input type="range" min="5" max="30" value="10" id="cas" name="cas">
             <span id="value"></span>
