@@ -12,7 +12,7 @@
     <h1>Hitro računanje</h1>
     <form action="racunanje.html" method="get">
         <div>
-            <p>Računanje do:</p>
+            <span>Računanje do:</span>
             <input type="radio" id="10" name="racunanjeDo" value="10">
             <label for="10">10</label>
             <input type="radio" id="20" name="racunanjeDo" value="20">
@@ -23,7 +23,7 @@
             <label for="100">100</label>
         </div>
         <div>
-            <p>Operacije:</p>
+            <span>Operacije:</span>
             <input type="checkbox" id="sestevanje" name="operacije" value="+">
             <label for="sestevanje">Seštevanje</label>
             <input type="checkbox" id="odstevanje" name="operacije" value="-">
@@ -34,16 +34,30 @@
             <label for="deljenje">Deljenje</label>
         </div>
         <div>
-            <p>Tip igre:</p>
-            <input type="radio" id="casovna" name="tipIgre" value="casovna">
-            <label for="casovna">Časovna</label>
-            <input type="radio" id="stevilcna" name="tipIgre" value="stevilcna">
-            <label for="stevilcna">Številčna</label>
-            <input type="radio" id="racunska" name="tipIgre" value="racunska">
-            <label for="racunska">Računska</label>
+            <label for="tipIgre">Tip igre:</label>
+            <select name="tipIgre" id="tipIgre">
+                <option value="casovna">Časovna</option>
+                <option value="stevilcna">Številčna</option>
+                <option value="racunska">Računska</option>
+            </select>
+        </div>
+        <div class="slidecontainer">
+            <label for="cas">Čas:</label>   
+            <input type="range" min="5" max="30" value="10" id="cas" name="cas">
+            <span id="value"></span>
         </div>
         <input type="submit" value="Submit">
     </form>
+
+    <script>
+        var slider = document.getElementById("cas");
+        var output = document.getElementById("value");
+        output.innerHTML = slider.value + " s";
+
+        slider.oninput = function() {
+            output.innerHTML = this.value + " s";
+        }
+    </script>
 </body>
 
 </html>

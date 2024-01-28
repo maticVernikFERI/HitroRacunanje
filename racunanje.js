@@ -6,6 +6,7 @@ const urlParams = new URLSearchParams(queryString);
 let racunanjeDo = urlParams.get("racunanjeDo");
 let operacije = urlParams.getAll("operacije");
 let tipIgre = urlParams.get("tipIgre");
+let cas = urlParams.get("cas");
 let rezultat;
 
 $(document).ready(function () {
@@ -23,6 +24,7 @@ function startNew() {
     if(stPravilnih + stNarobnih == 10){
         setCookie("stPravilnih", stPravilnih, 1);
         setCookie("stNarobnih", stNarobnih, 1);
+        console.log(getCookie("stPravilnih"));
         window.open("rezultati.html", "_self");
     }
     rezultat = napisiRacun(operacije, racunanjeDo);
@@ -30,7 +32,7 @@ function startNew() {
 }
 
 function startcountdown() {
-    let seconds = 10;
+    let seconds = cas;
     clearInterval(countdown);
     countdown = setInterval(function () {
         seconds--;
