@@ -5,6 +5,7 @@
     <title>Hitro računanje</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="index.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="validateForm.js"></script>
 </head>
@@ -46,7 +47,7 @@
             <input type="range" min="5" max="30" value="10" id="cas" name="cas">
             <span id="value"></span>
         </div>
-        <input type="submit" value="Začni">
+        <input type="submit" value="Začni" id="submitButton">
     </form>
 
     <script>
@@ -58,15 +59,15 @@
             output.innerHTML = this.value + " s";
         }
 
-        function changeTime(){
+        function changeTime() {
             var tipIgre = document.getElementById("tipIgre").value;
-            if(tipIgre == "casovna"){
+            if (tipIgre == "casovna") {
                 slider.min = 5;
                 slider.max = 30;
                 slider.value = 10;
                 slider.step = 1;
                 output.innerHTML = slider.value + " s";
-            }else{
+            } else {
                 slider.min = 20;
                 slider.max = 120;
                 slider.value = 30;

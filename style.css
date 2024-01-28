@@ -13,6 +13,7 @@
     line-height: 1.8em;
     box-sizing: border-box;
     scroll-behavior: smooth;
+    font-family: 'Comic Sans MS', sans-serif;
 }
 
 html,
@@ -21,11 +22,37 @@ body {
 }
 
 html {
-    min-width: 300px;
     background-color: var(--primary-bg);
+    color: var(--primary-color);
 }
 
 body {
     text-align: center;
+    font-size: 2em;
 }
 
+h1 {
+    font-size: 2em;
+    font-weight: 700;
+    margin: 0 0 0.2em 0;
+    padding: 0.2em 0 0.2em 0;
+    background-color: var(--secondary-bg);
+}
+
+button{
+display: inline-block;
+outline: none;
+cursor: pointer;
+font-weight: 600;
+border-radius: 3px;
+padding: 12px 24px;
+border: 0;
+color: var(--primary-color);
+background: var(--secondary-bg);
+line-height: 1.15;
+font-size: 16px;
+}
+button:hover {
+    transition: all .1s ease;
+    box-shadow: 0 0 0 0 #fff, 0 0 0 3px var(--secondary-bg);
+}
