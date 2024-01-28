@@ -46,7 +46,7 @@ form {
         height: 1rem;
         cursor: -webkit-grab; cursor: grab;
         background: var(--primary-color);
-        box-shadow: -8.5vw 0 0 8vw var(--secondary-color);
+        box-shadow: -11vw 0 0 10.5vw var(--secondary-color);
         border-radius: 50%;
     }
 }
