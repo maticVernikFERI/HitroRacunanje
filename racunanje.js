@@ -57,6 +57,10 @@ function oddajRezultat(rezultat) {
 }
 
 function beriRezultat() {
+    if($(this).html() == "C"){
+        $("#odgovor").html("");
+        return;
+    }
     let rezString = $("#odgovor").html();
     rezString += $(this).html();
     $("#odgovor").html(rezString);

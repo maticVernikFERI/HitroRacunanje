@@ -3,14 +3,15 @@
 
 <head>
     <title>Hitro računanje</title>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="validateForm.js"></script>
 </head>
 
 <body>
     <h1>Hitro računanje</h1>
-    <form action="racunanje.html" method="get">
+    <form action="racunanje.html" onsubmit="return validateForm()" method="get">
         <div>
             <span>Računanje do:</span>
             <input type="radio" id="10" name="racunanjeDo" value="10">
@@ -35,18 +36,17 @@
         </div>
         <div>
             <label for="tipIgre">Tip igre:</label>
-            <select name="tipIgre" id="tipIgre">
-                <option value="casovna">Časovna</option>
-                <option value="stevilcna">Številčna</option>
-                <option value="racunska">Računska</option>
+            <select name="tipIgre" id="tipIgre" onchange="changeTime()">
+                <option value="casovna">10 računov za vsakega x sekund</option>
+                <option value="stevilcna">Koliko računov v x sekundah</option>
             </select>
         </div>
         <div class="slidecontainer">
-            <label for="cas">Čas:</label>   
+            <label for="cas">Čas:</label>
             <input type="range" min="5" max="30" value="10" id="cas" name="cas">
             <span id="value"></span>
         </div>
-        <input type="submit" value="Submit">
+        <input type="submit" value="Začni">
     </form>
 
     <script>
@@ -54,8 +54,25 @@
         var output = document.getElementById("value");
         output.innerHTML = slider.value + " s";
 
-        slider.oninput = function() {
+        slider.oninput = function () {
             output.innerHTML = this.value + " s";
+        }
+
+        function changeTime(){
+            var tipIgre = document.getElementById("tipIgre").value;
+            if(tipIgre == "casovna"){
+                slider.min = 5;
+                slider.max = 30;
+                slider.value = 10;
+                slider.step = 1;
+                output.innerHTML = slider.value + " s";
+            }else{
+                slider.min = 20;
+                slider.max = 120;
+                slider.value = 30;
+                slider.step = 5;
+                output.innerHTML = slider.value + " s";
+            }
         }
     </script>
 </body>
