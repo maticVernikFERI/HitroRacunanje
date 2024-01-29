@@ -1,0 +1,42 @@
+table {
+    width: 40rem;
+    height: 40rem;
+    margin-left: auto;
+    margin-right: auto;
+    border: 0.1rem solid var(--primary-color);
+    background-color: var(--secondary-color);
+    border-radius: 0.5rem;
+}
+td {
+    font-size: 3rem;
+    border: 0.1rem solid var(--primary-color);
+    padding: 1rem;
+    background-color: var(--primary-bg);
+    border-radius: 0.5rem;
+}
+td:hover {
+    background-color: var(--secondary-bg);
+}
+
+.parent {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.div1 {
+    grid-area: 1 / 2 / 3 / 3;
+}
+
+#racun{
+    font-size: 3.5rem;
+    position: relative;
+    top: -15rem;
+}
+
+#timer{
+    font-size: 1.5rem;
+    height: 3rem;
+}
