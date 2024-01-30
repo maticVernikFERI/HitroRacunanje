@@ -4,6 +4,7 @@
 <head>
     <title>Hitro računanje</title>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Style/style.css">
     <link rel="stylesheet" href="Style/index.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -45,7 +46,7 @@
             Deljenje</label>
         </div>
         <div class="formElementContainer">
-            <label for="tipIgre">Tip igre:</label>
+            <label for="tipIgre" id="tipIgreLabel">Tip igre:</label>
             <select name="tipIgre" id="tipIgre" onchange="changeTime()">
                 <option value="casovna">10 računov za vsakega x sekund</option>
                 <option value="stevilcna">Koliko računov v x sekundah</option>

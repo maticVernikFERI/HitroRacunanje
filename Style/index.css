@@ -15,7 +15,7 @@ form {
     color: var(--primary-color);
     background: var(--secondary-bg);
     line-height: 1.15;
-    font-size: 1rem;
+    font-size: 1.2rem;
     margin: 1rem 0;
     transition: all 0.3s ease;
 }
@@ -25,34 +25,7 @@ form {
     box-shadow: 0 0 0 0 #fff, 0 0 0 0.2rem var(--secondary-bg);
 }
 
-/*Chrome*/
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-    input[type='range'] {
-        overflow: hidden;
-        width: 20vw;
-        -webkit-appearance: none;
-        background-color: var(--secondary-bg);
-        border-radius: 1rem;
-    }
 
-    input[type='range']::-webkit-slider-runnable-track {
-        height: 1rem;
-        -webkit-appearance: none;
-        color: var(--primary-color);
-        border-radius: 1rem;
-    }
-
-    input[type='range']::-webkit-slider-thumb {
-        width: 1rem;
-        -webkit-appearance: none;
-        height: 1rem;
-        cursor: -webkit-grab;
-        cursor: grab;
-        background: var(--primary-color);
-        box-shadow: -11vw 0 0 10.5vw var(--secondary-color);
-        border-radius: 50%;
-    }
-}
 
 /** FF*/
 input[type="range"]::-moz-range-progress {
@@ -99,6 +72,34 @@ input[type="range"]::-ms-fill-upper {
     gap: 0.5em;
 }
 
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    input[type='range'] {
+        overflow: hidden;
+        width: 20vw;
+        -webkit-appearance: none;
+        background-color: var(--secondary-bg);
+        border-radius: 1rem;
+    }
+
+    input[type='range']::-webkit-slider-runnable-track {
+        height: 1rem;
+        -webkit-appearance: none;
+        color: var(--primary-color);
+        border-radius: 1rem;
+    }
+
+    input[type='range']::-webkit-slider-thumb {
+        width: 1rem;
+        -webkit-appearance: none;
+        height: 1rem;
+        cursor: -webkit-pointer;
+        cursor: pointer;
+        background: var(--primary-color);
+        box-shadow: -10.5vw 0 0 10vw var(--secondary-color);
+        border-radius: 50%;
+    }
+}
+
 input[type="checkbox"] {
     -webkit-appearance: none;
     appearance: none;
@@ -127,8 +128,11 @@ input[type="checkbox"]::before {
     clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
 }
 
-input[type="checkbox"]:hover {
+input[type="checkbox"]:hover,
+input[type="radio"]:hover {
     box-shadow: 0 0 0 0.05rem var(--primary-color);
+    cursor: -webkit-pointer;
+    cursor: pointer;
 }
 
 input[type="checkbox"]:checked::before,
@@ -162,10 +166,6 @@ input[type="radio"]::before {
     background-color: CanvasText;
 }
 
-input[type="radio"]:hover {
-    box-shadow: 0 0 0 0.05rem var(--primary-color);
-}
-
 select {
     background-color: var(--secondary-bg);
     border: 0.13rem solid var(--primary-color);
@@ -182,4 +182,38 @@ select {
 select:hover {
     transition: all 0.2s ease-in-out;
     box-shadow: 0 0 0 0.05rem var(--primary-color);
+}
+
+#value{
+    width: 3rem;
+}
+
+@media only screen and (max-width: 650px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    body {
+        font-size: 1.3rem;
+    }
+
+    .checkboxContainer,
+    .radioContainer,
+    .formElementContainer {
+        flex-direction: column;
+    }
+
+    #value{
+        width: 3.2rem;
+    }
+
+    @media screen and (-webkit-min-device-pixel-ratio:0) {
+        input[type='range'] {
+            width: 60vw;
+        }
+    
+        input[type='range']::-webkit-slider-thumb {
+            box-shadow: -30vw 0 0 28vw var(--secondary-color);
+        }
+    }
 }
