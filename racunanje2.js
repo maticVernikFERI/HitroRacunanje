@@ -21,14 +21,7 @@ $(document).ready(function () {
 });
 
 function startNew() {
-    if(stPravilnih + stNarobnih == 10){
-        setCookie("stPravilnih", stPravilnih, 1);
-        setCookie("stNarobnih", stNarobnih, 1);
-        console.log(getCookie("stPravilnih"));
-        window.open("rezultati.html", "_self");
-    }
     rezultat = napisiRacun(operacije, racunanjeDo);
-
 }
 
 function startcountdown() {
@@ -38,9 +31,10 @@ function startcountdown() {
         seconds--;
         $("#timer").html(seconds + "s");
         if (seconds == 0) {
-            clearInterval(countdown);
-            oddajRezultat(null);
-            startNew();
+            setCookie("stPravilnih", stPravilnih, 1);
+            setCookie("stNarobnih", stNarobnih, 1);
+            console.log(getCookie("stPravilnih"));
+            window.open("rezultati.html", "_self");
         }
     }, 1000);
 }
@@ -52,12 +46,11 @@ function oddajRezultat(rezultat) {
     } else {
         stNarobnih++;
     }
-    startcountdown(countdown);
     console.log(stPravilnih, stNarobnih);
 }
 
 function beriRezultat() {
-    if($(this).html() == "C"){
+    if ($(this).html() == "C") {
         $("#odgovor").html("");
         return;
     }
@@ -72,7 +65,7 @@ function napisiRacun(operacije, racunanjeDo) {
     let stOperacij = operacije.length;
     let operacija = operacije[Math.floor(Math.random() * stOperacij)];
     let stevki = dobiStevki(operacija, rezultat, racunanjeDo);
-    
+
     switch (operacija) {
         case "plus":
             operacija = "+";
@@ -170,27 +163,27 @@ function dobiVeckratnike(stevilo, meja) {
     return veckratniki;
 }
 
-function setCookie(name,value,days) {
+function setCookie(name, value, days) {
     var expires = "";
     if (days) {
         var date = new Date();
-        date.setTime(date.getTime() + (days*24*60*60*1000));
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
         expires = "; expires=" + date.toUTCString();
     }
     value = value.toString();
-    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+    document.cookie = name + "=" + (value || "") + expires + "; path=/";
 }
 
 function getCookie(name) {
     var nameEQ = name + "=";
     var ca = document.cookie.split(';');
-    for(var i=0;i < ca.length;i++) {
+    for (var i = 0; i < ca.length; i++) {
         var c = ca[i];
-        while (c.charAt(0)==' ') c = c.substring(1,c.length);
-        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
     }
     return null;
 }
-function eraseCookie(name) {   
-    document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+function eraseCookie(name) {
+    document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 }

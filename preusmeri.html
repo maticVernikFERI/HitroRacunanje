@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="sl">
+
+<head>
+    <title>Hitro računanje</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="SmartSelect_20240129_141230_Samsung Notes.jpg">
+    <link rel="stylesheet" href="Style/style.css">
+    <link rel="stylesheet" href="Style/rezultati.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="rezultati.js"></script>
+</head>
+
+<body>
+    <h1>Hitro računanje</h1>
+    <script>
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        let tipIgre = urlParams.get("tipIgre");
+        let racunanjeDo = urlParams.get("racunanjeDo");
+        let operacije = urlParams.getAll("operacije");
+        let cas = urlParams.get("cas");
+
+        if (tipIgre == "casovna") {
+            let url = "racunanje.html?tipIgre=casovna&racunanjeDo=" + racunanjeDo + "&cas=" + cas;
+            for (let i = 0; i < operacije.length; i++) {
+                url += "&operacije=" + operacije[i];
+            }
+            window.open(url, "_self");
+        }else if (tipIgre == "stevilcna") {
+            let url = "racunanje2.html?tipIgre=stevilcna&racunanjeDo=" + racunanjeDo + "&cas=" + cas;
+            for (let i = 0; i < operacije.length; i++) {
+                url += "&operacije=" + operacije[i];
+            }
+            window.open(url, "_self");
+        }
+    </script>
+</body>
+
+</html>
